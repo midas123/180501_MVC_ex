@@ -9,15 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-<servlet>
-	<servlet-name>SimpleController</servlet-name>
-	<servlet-class>mvc.SimpleController</servlet-class>
-</servlet>  
-<servlet-mapping>
-	<servlet-name>SimpleController</servlet-name>
-	<url-pattern>/simple</url-pattern>
-</servlet-mapping> 
 
   <servlet>
   	<servlet-name>DBCPInit</servlet-name>
@@ -28,7 +19,16 @@
   	</init-param>
   	<load-on-startup>1</load-on-startup>
   </servlet>
-  
+<!--   
+<servlet>
+	<servlet-name>SimpleController</servlet-name>
+	<servlet-class>mvc.SimpleController</servlet-class>
+</servlet>  
+<servlet-mapping>
+	<servlet-name>SimpleController</servlet-name>
+	<url-pattern>/simple</url-pattern>
+</servlet-mapping>  -->
+<!--   
   <servlet>
   		<servlet-name>tiles</servlet-name>
   		<servlet-class>org.apache.tiles.web.startup.TilesServlet</servlet-class>
@@ -54,8 +54,8 @@
   		<servlet-name>TilesDispatchServlet</servlet-name>
   		<url-pattern>*.tiles</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
+   -->
+<!--   <servlet>
   	<servlet-name>ControllerUsingFile</servlet-name>
   	<servlet-class>mvc.ControllerUsingFile</servlet-class>
   	<init-param>
@@ -83,5 +83,23 @@
   	<servlet-name>ControllerUsingURI</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  -->
+  <servlet>
+	<servlet-name>ControllerUsingURI</servlet-name>
+	<servlet-class>board.ControllerUsingURI2</servlet-class>
+	<init-param>
+		<param-name>configFile2</param-name>
+		<param-value>/WEB-INF/commandHandlerURI.properties</param-value>
+	</init-param>
+  </servlet>
+	
+  <servlet-mapping>
+	<servlet-name>ControllerUsingURI</servlet-name>
+	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
-
+ 
+ 
+ 
