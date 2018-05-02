@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
-encoding//WebContent/WEB-INF/commandHandler.properties=EUC-KR
+encoding//WebContent/WEB-INF/commandHandler2.properties=EUC-KR
+encoding//WebContent/WEB-INF/commandHandlerURI.properties=EUC-KR
 encoding//src/board/BoardDBBean.java=UTF-8

@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import board.BoardDBBean;
 
 
+
 public class ListAction implements CommandAction {
+	
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		String pageNum = request.getParameter("pageNum");
 		
