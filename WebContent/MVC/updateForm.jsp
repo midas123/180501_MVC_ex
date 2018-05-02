@@ -40,7 +40,19 @@
 		<td align="left" width="330">
 		<input type="password" size="8" maxlength="12" name="passwd">
 	</td>
-	</tr>	
+	</tr>
+	<tr>
+		<td colspan=2 bgcolor="${value_c }" align="center">
+		<input type="submit" value="글수정">
+		<input type="reset"	value="다시작성">
+		<input type="button" value="목록보기"
+       onclick="document.location.href='/MVC/list.do?pageNum=${pageNum}'">
+   </td>
+</tr>
+</table>
+</form>
+</body>
+</html> 	
 </table>
 </body>
 </html>
