@@ -55,7 +55,29 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
 		<input type="button" value="답글쓰기" onclick="document.location.href='/180501_MVC_ex/MVC/writeForm.do?num=${article.num}&ref=${article.ref }&re_step=${article.re_step }$re_level=${article.re_level }'">&nbsp;&nbsp;&nbsp;&nbsp;	
 		<input type="button" value="글삭제" onclick="document.location.href='/180501_MVC_ex/MVC/list.do?pageNum=${pageNum }'">&nbsp;&nbsp;&nbsp;&nbsp;	
 	</td>
-	</tr>	
+	</tr>
+	<form method=post action=contentPro.jsp name="comment" onsubmit="return writeSave()">
+	<tr align="center">
+		<td>코멘트 작성</td>
+		<td colspan=2><textarea name=commentt rows="6" cols="40"></textarea>
+		<input type=hidden name=content_num value="">
+		<input type=hidden name=p_num value="">
+		<%-- <input type=hidden name=comment_num value=<%=mainArticle %>> --%>
+		<input type="hidden" name="com_re_set" value=""/>
+		<input type="hidden" name="com_re_level" value=""/>
+		<input type="hidden" name="com_re_step" value=""/>
+		<input type="hidden" name="mnum" value=""/>
+	</td>
+	</tr>
+	<tr>
+	<c:if test="{count>0}"/>
+	
+	
+	</c:if>
+	</tr>
+		
+	
+		
 </table>
 </form>
 </body>

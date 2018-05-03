@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import board.BoardDBBean;
-
+import comment.CommentDBBean;
 
 
 public class ListAction implements CommandAction {
@@ -15,7 +15,7 @@ public class ListAction implements CommandAction {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		String pageNum = request.getParameter("pageNum");
 		String search = request.getParameter("search");
-		int searchn=0;
+		int searchn=0;//검색어 종류(0:작성자, 1:제목, 2:내용)
 		
 		
 		if(pageNum == null) {
@@ -58,6 +58,9 @@ public class ListAction implements CommandAction {
     			articleList = dbPro.getArticles(startRow, endRow, searchn, search);
     	}
         //검색기능 코드
+        
+        	
+        
         
         
 //	        if (count > 0) {

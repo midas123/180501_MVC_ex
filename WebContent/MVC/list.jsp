@@ -1,8 +1,11 @@
+<%@page import="org.apache.tiles.jsp.taglib.GetAsStringTag"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="color.jspf" %>
+<%@ page import="comment.CommentDBBean" %>
+<%@ page import="comment.CommentDataBean" %>
  
 <html>
 <head>
@@ -45,7 +48,25 @@
     	<td align="center" width="50">
     	<c:out value="${number }"/>
     	<c:set var="number" value="${number-1 }"/>
-    	</td>
+    	
+    	<c:set var="articleNumber" value="${article.num }"/>  
+    	<c:set var="com_count" value="0"/>  
+    		
+    	<%
+    	int Anumber = Integer.parseInt(pageContext.getAttribute("articleNumber").toString());
+    	System.out.println("articleNumber:"+Anumber);
+    	CommentDBBean cdb = CommentDBBean.getInstance();
+    	int com_count=cdb.getCommentCount(Anumber);
+    	System.out.println("com_count:"+com_count);
+    	
+    	pageContext.setAttribute("com_count", com_count);
+    	%> 
+    	
+  		<c:set var="com_count" value="${pageScope.com_count }"/>
+    	
+    	<%-- <c:set var="com_count" value="${cdb.getCommentCount(article.num)}"/>
+    	</td> --%>
+    	
     	<td width="250">
     	<c:if test="${article.re_level>0 }">
     	<img src="./images/level.gif" width="${5*article.re_level }" height="16">
@@ -55,12 +76,22 @@
     	<img src="./images/level.gif" width="${5*article.re_level }" height="16">
 		</c:if>
 		
+		
+		<c:if test="${com_count ==0 }">
 			<a href="content.do?num=${article.num }&pageNum=${currentPage}">
 			${article.subject }</a>
-			<c:if test="${article.readcount >=20 }">
-				<img src="./images/hot.gif" border="0" height="16">
-			</c:if>	    	
 		</td>
+		</c:if>
+		<c:if test="${com_count>0 }">
+			<a href="content.do?num=${article.num }&pageNum=${currentPage}">
+			${article.subject }[${com_count }]</a>
+		</td>
+		
+		
+		</c:if>
+		<c:if test="${article.readcount >=20 }">
+				<img src="./images/hot.gif" border="0" height="16">
+		</c:if>
 		<td align="center" width="100">
 		<a href="mailto:${article.email }">${article.writer }</a>
 		</td>
