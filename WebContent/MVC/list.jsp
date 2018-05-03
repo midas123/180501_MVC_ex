@@ -92,6 +92,16 @@
 			<a href="/180501_MVC_ex/MVC/list.do?pageNum=${startPage+10 }">[다음]</a>
 		</c:if>
 	</c:if>	
+	<form>
+<select name="searchn">
+<option value="0">작성자</option>
+<option value="1">제목</option>
+<option value="2">내용</option>
+</select>
+
+<input type="text" name="search" size="15" maxlength="50"/>
+<input type="submit" value="검색"/>
+</form>
 </center>
 </body>
 </html>
