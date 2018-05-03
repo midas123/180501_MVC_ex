@@ -2,6 +2,6 @@
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<meta http-equiv="Refresh" content="0;url=/MVC/list.do">
+<meta http-equiv="Refresh" content="0;url=/180501_MVC_ex/MVC/list.do">
 
     

@@ -12,17 +12,17 @@
 <body bgcolor="${bodybock_c }">
 <center><b>글수정</b>
 <br>
-<form method="post" name="writeform" action="/MVC/updatePro.do?pageNum=${pageNum }" onsubmit="return writeSave()">
-<table widht="400" border="1" cellspacing="0" cellpadding="0" align="center">
+<form method="post" name="writeform" action="updatePro.do?pageNum=${pageNum }" onsubmit="return writeSave()">
+<table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr>
-		<td widht="700" bgcolor="${value_c }" align="center">이름</td>
-		<td align="left" widht="330">
+		<td width="700" bgcolor="${value_c }" align="center">이름</td>
+		<td align="left" width="330">
 			<input type="text" size="10" maxlength="10" name="writer" value="${article.writer }">
 			<input type="hidden" name="num" value="${article.num }"></td>
 	</tr>
 	<tr>
 		<td width="70" bgcolor="${value_c }" align="center">제목</td>
-		<td align="left" widht="330">
+		<td align="left" width="330">
 			<input type="text" size="40" maxlength="50" name="subject" value= "${article.subject }"></td>
 	</tr>				
 	<tr>
@@ -46,13 +46,10 @@
 		<input type="submit" value="글수정">
 		<input type="reset"	value="다시작성">
 		<input type="button" value="목록보기"
-       onclick="document.location.href='/MVC/list.do?pageNum=${pageNum}'">
+       onclick="document.location.href='/180501_MVC_ex/MVC/list.do?pageNum=${pageNum}'">
    </td>
 </tr>
 </table>
 </form>
 </body>
 </html> 	
-</table>
-</body>
-</html>

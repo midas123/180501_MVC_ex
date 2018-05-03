@@ -13,7 +13,7 @@
 <body bgcolor="${bodybock_c }">
 <center><b>글쓰기</b>
 <br>
-<form method="post" name="writeform" action="/MVC/writePro.do" onsubmit="return" writeSave()">
+<form method="post" name="writeform" action="/180501_MVC_ex/MVC/writePro.do" onsubmit="return writeSave()">
 <input type="hidden" name="num" value="${num }">
 <input type="hidden" name="ref" value="${ref }">
 <input type="hidden" name="re_step" value="${re_step }">
@@ -22,7 +22,7 @@
 <table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
 	<tr>
 		<td align="right" colspan="2" bgcolor="${value_c }">
-		<a href="/MVC/list.do">글목록</a>
+		<a href="/180501_MVC_ex/MVC/list.do">글목록</a>
 		</td>
 	</tr>
 	<tr>
@@ -60,7 +60,7 @@
 		<td colspan=2 bgcolor="${value_c }" align="center">
 		<input type="submit" value="글쓰기">
 		<input type="reset" value="다시작성">
-		<input type="button" value="목록보기" onclick="window.location='/MVC/list.do'">
+		<input type="button" value="목록보기" onclick="window.location='/180501_MVC_ex/MVC/list.do'">
 	</td>
 	</tr>	
 </table>

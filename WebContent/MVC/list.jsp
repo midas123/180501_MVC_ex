@@ -48,17 +48,17 @@
     	</td>
     	<td width="250">
     	<c:if test="${article.re_level>0 }">
-    	<img src="images/level.gif" width="${5*article.re_level }" height="16">
-    	<img src="images/re.gif">
+    	<img src="./images/level.gif" width="${5*article.re_level }" height="16">
+    	<img src="./images/re.gif">
     	</c:if>
     	<c:if test="${article.re_level ==0 }">
-    	<img src="images/level.gif" width="${5*article.re_level }" height="16">
+    	<img src="./images/level.gif" width="${5*article.re_level }" height="16">
 		</c:if>
 		
 			<a href="content.do?num=${article.num }&pageNum=${currentPage}">
 			${article.subject }</a>
 			<c:if test="${article.readcount >=20 }">
-				<img src="images/hot.gif" border="0" height="16">
+				<img src="./images/hot.gif" border="0" height="16">
 			</c:if>	    	
 		</td>
 		<td align="center" width="100">
@@ -81,15 +81,15 @@
 			<c:set var="endPage" value="${pageCount }"/>
 		</c:if>	
 		<c:if test="${startPage>0 }">
-			<a href="MVC/list.do?pageNum=${startPage -10 }">[이전]</a>
+			<a href="/180501_MVC_ex/MVC/list.do?pageNum=${startPage -10 }">[이전]</a>
 		</c:if>
 		
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
-			<a href="MVC/list.do?pageNum=${i }">[${i }]</a>
+			<a href="/180501_MVC_ex/MVC/list.do?pageNum=${i }">[${i }]</a>
 		</c:forEach>	
 		
 		<c:if test="{endPage < pageCount}">
-			<a href="MVC/list.do?pageNum=${startPage+10 }">[다음]</a>
+			<a href="/180501_MVC_ex/MVC/list.do?pageNum=${startPage+10 }">[다음]</a>
 		</c:if>
 	</c:if>	
 </center>

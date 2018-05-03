@@ -12,6 +12,7 @@ public class WriteProAction implements CommandAction {
 		public String requestPro (HttpServletRequest request, HttpServletResponse response) throws Throwable {
 			request.setCharacterEncoding("euc-kr");
 			BoardDataBean article = new BoardDataBean();
+			article.setNum(Integer.parseInt(request.getParameter("num")));
 			article.setWriter(request.getParameter("writer"));
 			article.setEmail(request.getParameter("email"));
 			article.setSubject(request.getParameter("subject"));

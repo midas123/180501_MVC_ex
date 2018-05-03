@@ -50,10 +50,10 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
 	</tr>
 	<tr height="30">
 		<td colspan="4" bgcolor="${value_c }" align="right">
-		<input type="button" value="글수정" onclick="document.location.href='/MVC/updateForm.do?num=${article.num}&pageNum=${pageNum}'">&nbsp;&nbsp;&nbsp;&nbsp;
-		<input type="button" value="글삭제" onclick="document.location.href='/MVC/deleteForm.do?num=${article.num}&pageNum=${pageNum }'">&nbsp;&nbsp;&nbsp;&nbsp;	
-		<input type="button" value="답글쓰기" onclick="document.location.href='/MVC/writeForm.do?num=${article.num}&ref=${article.ref }&re_step=${article.re_step }$re_level=${article.re_level }'">&nbsp;&nbsp;&nbsp;&nbsp;	
-		<input type="button" value="글삭제" onclick="document.location.href='/MVC/list.do?pageNum=${pageNum }'">&nbsp;&nbsp;&nbsp;&nbsp;	
+		<input type="button" value="글수정" onclick="document.location.href='/180501_MVC_ex/MVC/updateForm.do?num=${article.num}&pageNum=${pageNum}'">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" value="글삭제" onclick="document.location.href='/180501_MVC_ex/MVC/deleteForm.do?num=${article.num}&pageNum=${pageNum }'">&nbsp;&nbsp;&nbsp;&nbsp;	
+		<input type="button" value="답글쓰기" onclick="document.location.href='/180501_MVC_ex/MVC/writeForm.do?num=${article.num}&ref=${article.ref }&re_step=${article.re_step }$re_level=${article.re_level }'">&nbsp;&nbsp;&nbsp;&nbsp;	
+		<input type="button" value="글삭제" onclick="document.location.href='/180501_MVC_ex/MVC/list.do?pageNum=${pageNum }'">&nbsp;&nbsp;&nbsp;&nbsp;	
 	</td>
 	</tr>	
 </table>

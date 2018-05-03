@@ -398,7 +398,6 @@ public class BoardDBBean {
 						article.setRe_level(rs.getInt("re_level"));
 						article.setContent(rs.getString("content"));
 						article.setIp(rs.getString("ip"));
-						
 						articleList.add(article);
 						
 				}while(rs.next());
