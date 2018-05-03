@@ -54,10 +54,8 @@
     		
     	<%
     	int Anumber = Integer.parseInt(pageContext.getAttribute("articleNumber").toString());
-    	System.out.println("articleNumber:"+Anumber);
     	CommentDBBean cdb = CommentDBBean.getInstance();
     	int com_count=cdb.getCommentCount(Anumber);
-    	System.out.println("com_count:"+com_count);
     	
     	pageContext.setAttribute("com_count", com_count);
     	%> 
@@ -80,18 +78,17 @@
 		<c:if test="${com_count ==0 }">
 			<a href="content.do?num=${article.num }&pageNum=${currentPage}">
 			${article.subject }</a>
-		</td>
 		</c:if>
 		<c:if test="${com_count>0 }">
 			<a href="content.do?num=${article.num }&pageNum=${currentPage}">
 			${article.subject }[${com_count }]</a>
-		</td>
 		
 		
 		</c:if>
 		<c:if test="${article.readcount >=20 }">
 				<img src="./images/hot.gif" border="0" height="16">
 		</c:if>
+		</td>
 		<td align="center" width="100">
 		<a href="mailto:${article.email }">${article.writer }</a>
 		</td>
@@ -111,7 +108,7 @@
 		<c:if test="${endPage > pageCount }">
 			<c:set var="endPage" value="${pageCount }"/>
 		</c:if>	
-		<c:if test="${startPage>0 }">
+		<c:if test="${startPage>10 }">
 			<a href="/180501_MVC_ex/MVC/list.do?pageNum=${startPage -10 }">[¿Ã¿¸]</a>
 		</c:if>
 		

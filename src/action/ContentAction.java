@@ -19,6 +19,8 @@ public class ContentAction implements CommandAction {
 		BoardDataBean article = dbPro.getArticle(num);
 		
 		//´ñ±Û ºÎºÐ
+		int com_re_set =1, com_re_level=0, com_re_step=0, mnum=0, wid=0;
+		
 		int pageSize=10;
 		String cPageNum = request.getParameter("cPageNum");
 		
@@ -34,11 +36,24 @@ public class ContentAction implements CommandAction {
 		CommentDBBean cdb=CommentDBBean.getInstance();
 		ArrayList comments=cdb.getComments(num,startRow, endRow);
 		
-		
+		try {
 		request.setAttribute("num", new Integer(num));
+		System.out.println(num);
+		System.out.println("pageNum:"+pageNum);
 		request.setAttribute("pageNum", new Integer(pageNum));
-		request.setAttribute("article", article);
+		request.setAttribute("com_re_level", com_re_level);
+		request.setAttribute("com_re_set", com_re_set);
+		request.setAttribute("com_re_step", com_re_step);
+		request.setAttribute("mnum", mnum);
+		request.setAttribute("wid", wid);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
 		request.setAttribute("comments", comments);
+		request.setAttribute("article", article);
 		
 		return "/MVC/content.jsp";
 		
