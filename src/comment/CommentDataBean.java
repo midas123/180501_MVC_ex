@@ -18,7 +18,7 @@ public class CommentDataBean {
 	public int getMNum() {
 		return mnum;
 	}
-	public void setMNum(int num) {
+	public void setMNum(int mnum) {
 		this.mnum = mnum;
 	}
 	public int getComment_num() {

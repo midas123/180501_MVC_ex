@@ -44,9 +44,9 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
 		<td align="center" width="125" bgcolor="${value_c }">글제목</td>
 		<td align="center" width="375" align="center" colspan="3">${article.subject }</td>
 	</tr>
-	<tr>
+	<tr height="30">
 		<td align="center" width="125" bgcolor="${value_c }">글내용</td>
-		<td align="left" width="375" align="center" colspan="3">${article.subject }</td>
+		<td align="left" width="375" align="center" colspan="3">${article.content }</td>
 	</tr>
 	<tr height="30">
 		<td colspan="4" bgcolor="${value_c }" align="right">
@@ -57,9 +57,9 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
 	</td>
 	</tr>
 	<form method=post action=/180501_MVC_ex/MVC/commentWrite.do name="comment" onsubmit="return writeSave()">
-	<tr align="center">
+	<tr height="100" align="center">
 		<td>코멘트 작성</td>
-		<td colspan=2><textarea name="commentt" rows="6" cols="40"></textarea>
+		<td colspan=2><textarea name="commentt" rows="5" cols="40"></textarea>
 		<input type=hidden name="num" value="${num}">
 		
 		<input type=hidden name="pageNum" value="${pageNum}">
@@ -98,7 +98,11 @@ body,td,a,div,p,pre,input,textarea {font-family:굴림;font-size:9pt;}
 	
 	&nbsp;<b>${comment.commenter }&nbsp;님</b>(${comment.reg_date}</td>
 	<td align=right> 접속IP:${comment.ip}&nbsp;
-	[삭제][답글쓰기]
+	<form method="post" name="cdeleteform" action="commentDelete.jsp"></form>
+	
+	
+	<a href='commentDelete.jsp?cmn=${comment.comment_num}&ctn=${comment.content_num}&p_num=${pageNum}'>[삭제]</a>
+	<a href='commentReplyForm.jsp?cmn=${comment.comment_num}&ctn=${comment.content_num}&p_num=${pageNum}&cset=${comment.com_re_set}&cstep=${com_re_step}&clevel=${com_re_step}'>[답글쓰기]</a>
 	</td>
 	</tr>
 	<tr>

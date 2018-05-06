@@ -28,7 +28,8 @@ public class CommentDBBean {
 		ResultSet rs = null;
 
 		int cnumber = cdb.getContent_num();
-		int mnum = cdb.getComment_num(); //»õ´ñ±Û =0, ´äº¯ ´ñ±Û=´ñ±Û ¹øÈ£
+		int mnum = cdb.getMNum(); //»õ´ñ±Û =0, ´äº¯ ´ñ±Û=´ñ±Û ¹øÈ£
+		System.out.println("mnum:"+mnum);
 		int com_re_set = cdb.getCom_re_set();
 		int com_re_level = cdb.getCom_re_level();
 		int com_re_step = cdb.getCom_re_step();
@@ -46,6 +47,7 @@ public class CommentDBBean {
 		
 			//´äº¯ ´ñ±ÛÀÏ °æ¿ì step, level °ª Áõ°¡, ¾Æ´Ò °æ¿ì set¸¸ Áõ°¡
 			//ºÎ¸ðID Ãß°¡ÇÏ´Â ÂÊÀ¸·Î ¼öÁ¤ÇÒ °Í
+			System.out.println("·ÎÁ÷:"+mnum);
 			if(mnum!=0) {
 				pstmt = conn.prepareStatement("update comment_00 set com_re_step=com_re_step+1 where com_re_set=? and com_re_step>?");
 				pstmt.setInt(1, com_re_set);

@@ -15,6 +15,10 @@ public class CommentWriteAction implements CommandAction {
 		
 		int pagenum = Integer.parseInt(request.getParameter("pageNum"));
 		String num = request.getParameter("num");
+		String mnum = request.getParameter("mnum");
+		System.out.println("¿©±â:"+mnum);
+		
+		
 		
 		CommentDataBean comment = new CommentDataBean();
 		comment.setMNum(Integer.parseInt(request.getParameter("mnum")));
@@ -22,12 +26,15 @@ public class CommentWriteAction implements CommandAction {
 		comment.setCom_re_set(Integer.parseInt(request.getParameter("com_re_set")));
 		comment.setCom_re_step(Integer.parseInt(request.getParameter("com_re_step")));
 		comment.setContent_num(Integer.parseInt(num));
+		comment.setMNum(Integer.parseInt(mnum));
 		comment.setCommentt((request.getParameter("commentt")));
 		comment.setCommenter((request.getParameter("commenter")));
 		comment.setPasswd(request.getParameter("passwd"));
 		comment.setReg_date(new Timestamp(System.currentTimeMillis()));
 		comment.setIp(request.getRemoteAddr());
 		
+			
+			
 		CommentDBBean cdb = CommentDBBean.getInstance();
 		cdb.insertComment(comment);
 		

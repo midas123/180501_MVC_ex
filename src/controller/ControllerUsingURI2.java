@@ -28,6 +28,7 @@ public class ControllerUsingURI2 extends HttpServlet{
 		
 		try {
 			String configFilePath = config.getServletContext().getRealPath(props);
+			//C:\Users\yk\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\180501_MVC_ex\WEB-INF\commandHandlerURI.properties
 			f = new FileInputStream(configFilePath);
 			pr.load(f);
 		} catch (IOException e) {
@@ -69,7 +70,9 @@ public class ControllerUsingURI2 extends HttpServlet{
 		
 	try {
 		String command = request.getRequestURI();
+		//요청 URL이 웹 프로젝트 폴더의 경로와 일치하면 0을 리턴
 		if(command.indexOf(request.getContextPath()) ==0) {
+			//command 스트링에서 프로젝트 경로 만큼을 제외
 			command = command.substring(request.getContextPath().length());
 		}
 		
@@ -77,11 +80,14 @@ public class ControllerUsingURI2 extends HttpServlet{
 		if(com == null) {
 			com = new NullAction();
 		}
-			view = com.requestPro(request, response);
+		//해당 액션클래스가 로직을 수행하고 리턴한 URL을 view에 담는다.
+		view = com.requestPro(request, response);
 	    } catch(Throwable e) {
 	    	throw new ServletException(e);
 	    }
+	//Defines an object that receives requests from the client and sends them to any resource (such as a servlet, HTML file, or JSP file) on the server.
 	RequestDispatcher dispatcher =request.getRequestDispatcher(view);
+	// Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
     dispatcher.forward(request, response);
 	}
 }
