@@ -46,6 +46,11 @@
 		
 		open(url, "confirm", "toolbar=no, location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=550, height=200");
 	}
+	function zipCheck(){
+		url="Zipcheck.jsp?check=";
+		window.open(url,"post","toolbar=no, width=500, height=300, directories=no, status=yes, scrollbars=yes, menubar=no");
+	}
+	
 
 </script>
 </head>
@@ -98,6 +103,17 @@
         -<input type="text" name="jumin2" size="7" maxlength="7">
       </td>
     </tr>
+    <tr>
+		<td width="200">우편번호</td>
+		<td><input type="text" name="zipcode" size="7">
+			<input type="button" value="우편번호찾기" onclick="zipCheck()">
+			우편번호를 검색하세요.</td>
+	</tr>
+	<tr>
+			<td>주소</td>
+			<td><input type="text" name="address" size="70">
+			주소를 적어 주세요.</td>	
+		</tr>	
     <tr> 
       <td width="200">E-Mail</td>
       <td width="400"> 
@@ -114,7 +130,7 @@
       <td colspan="2" align="center" bgcolor="${value_c}"> 
           <input type="submit" name="confirm" value="등   록" >
           <input type="reset" name="reset" value="다시입력">
-          <input type="button" value="가입안함" onclick="document.location.href='/SSOL/logon/main.do'">
+          <input type="button" value="가입안함" onclick="document.location.href='./main.do'">
       </td>
     </tr>
   </table>
