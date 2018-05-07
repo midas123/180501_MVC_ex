@@ -18,8 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 import action.CommandAction;
 import action.NullAction;
 
+/*The servlet container creates an HttpServletRequest object and 
+passes it as an argument to the servlet's service methods (doGet, doPost, etc).
+*/
+
 public class ControllerUsingURI2 extends HttpServlet{
-	private Map commandMap = new HashMap();
+	private Map commandMap = new HashMap(); //명령어와 명령어 처리 클래스를 쌍으로 저장
 	
 	public void init(ServletConfig config) throws ServletException {
 		String props = config.getInitParameter("configFile2");
@@ -64,18 +68,20 @@ public class ControllerUsingURI2 extends HttpServlet{
 		requestPro(request, response);
 	}
 	
+	//시용자의 요청을 분석해서 해당 작업을 처리
 	private void requestPro (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String view = null;
 		CommandAction com=null;
 		
 	try {
 		String command = request.getRequestURI();
-		//요청 URL이 웹 프로젝트 폴더의 경로와 일치하면 0을 리턴
+		//요청 URL이 웹 프로젝트 폴더의 경로에 포함되면 0을 리턴
 		if(command.indexOf(request.getContextPath()) ==0) {
-			//command 스트링에서 프로젝트 경로 만큼을 제외
+			//command에서 프로젝트 경로 만큼을 제외
 			command = command.substring(request.getContextPath().length());
 		}
 		
+		//URL 명령어에 해당하는 클래스를 com에 담는다.
 		com = (CommandAction)commandMap.get(command);
 		if(com == null) {
 			com = new NullAction();
@@ -85,7 +91,7 @@ public class ControllerUsingURI2 extends HttpServlet{
 	    } catch(Throwable e) {
 	    	throw new ServletException(e);
 	    }
-	//Defines an object that receives requests from the client and sends them to any resource (such as a servlet, HTML file, or JSP file) on the server.
+	//사용자의 요청이 담긴 객체를 정의하고 서블릿,jsp,html 등으로 보내는 클래스
 	RequestDispatcher dispatcher =request.getRequestDispatcher(view);
 	// Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
     dispatcher.forward(request, response);
